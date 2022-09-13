@@ -1,33 +1,24 @@
-const Hello = (props) => {
-    return (
-        <div>
-            <p>
-            Hello {props.name}, you are {props.age} years old
-            </p>
-        </div>
-    )
-}
-
-const Footer = () => {
-  return (
-    <div>
-      greeting app created by <a href="https://github.com/mluukkai">mluukkai</a>
-    </div>
-  )
-}
+import { useState } from 'react'
 
 const App = () => {
-    const name = 'Peter'
-    const age = 10
+    const [clicks, setClicks] = useState({
+        left: 0, right: 0
+    })
+
+    const handleLeftClick = () =>
+        setClicks({ ...clicks, left: clicks.left + 1 })
+
+    const handleRightClick = () =>
+        setClicks({ ...clicks, right: clicks.right + 1 })
 
     return (
-        <>
-        <h1>Greetings</h1>
-        <Hello name="Maya" age={26 + 10 + age} />
-        <Hello name={name} age={age} />
-        <Footer />
-        </>
-  )
+        <div>
+            {clicks.left}
+            <button onClick={handleLeftClick}>left</button>
+            <button onClick={handleRightClick}>right</button>
+            {clicks.right}
+        </div>
+    )
 }
 
 export default App
