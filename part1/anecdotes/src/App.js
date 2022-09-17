@@ -34,7 +34,8 @@ const App = () => {
         <Button handleClick={handlePoints} text="vote" />
         <Button handleClick={() => setSelected(getRandomInt(7))} text="next anecdote" />
         <h3>Anecdote with most votes</h3>
-        {anecdotes[points.indexOf(Math.max.apply(window,points))]}
+        {anecdotes[points.indexOf(Math.max.apply(Math, points))]}
+        {console.log(points.indexOf(Math.max.apply(Math, points)))}
         
         </div>
     )
