@@ -28,10 +28,14 @@ const App = () => {
 
     return (
         <div>
+        <h3>Anecdote of the day</h3>
         {anecdotes[selected]} <br/>
         has {points[selected]} votes <br/>
         <Button handleClick={handlePoints} text="vote" />
         <Button handleClick={() => setSelected(getRandomInt(7))} text="next anecdote" />
+        <h3>Anecdote with most votes</h3>
+        {anecdotes[points.indexOf(Math.max.apply(window,points))]}
+        
         </div>
     )
 }
